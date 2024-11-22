@@ -4,12 +4,12 @@ export default function Terms() {
       <h1 className="font-fredoka text-4xl mb-8 text-secondary">Terms of Service</h1>
       <div className="prose max-w-none">
         <p className="mb-6">
-          This website is operated by Daydreamers Pet Supply LLC. Throughout the site, the terms "we", "us" and "our" refer to Daydreamers Pet Supply LLC. Daydreamers Pet Supply LLC offers this website, including all information, tools and Services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.
+          This website is operated by Daydreamers Pet Supply LLC. Throughout the site, the terms &quot;we&quot;, &quot;us&quot; and &quot;our&quot; refer to Daydreamers Pet Supply LLC. Daydreamers Pet Supply LLC offers this website, including all information, tools and Services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.
         </p>
 
         <h2 className="font-fredoka text-2xl mt-8 mb-4 text-accent-orange">Overview</h2>
         <p className="mb-6">
-          By visiting our site and/or purchasing something from us, you engage in our "Service" and agree to be bound by the following terms and conditions ("Terms of Service", "Terms"), including those additional terms and conditions and policies referenced herein and/or available by hyperlink.
+          By visiting our site and/or purchasing something from us, you engage in our &quot;Service&quot; and agree to be bound by the following terms and conditions (&quot;Terms of Service&quot;, &quot;Terms&quot;), including those additional terms and conditions and policies referenced herein and/or available by hyperlink.
         </p>
 
         <h2 className="font-fredoka text-2xl mt-8 mb-4 text-accent-orange">Online Store Terms</h2>

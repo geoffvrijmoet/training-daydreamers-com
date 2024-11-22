@@ -34,6 +34,7 @@ export default function ContactForm() {
         alert('Failed to send message. Please try again.')
       }
     } catch (error) {
+      console.error('Contact form submission error:', error)
       alert('An error occurred. Please try again.')
     } finally {
       setIsSubmitting(false)

@@ -1,18 +1,27 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
+    content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
-    },
+  	extend: {
+  		colors: {
+  			main: '#f7f7f7',
+  			secondary: '#1513ff',
+  			accent: {
+  				peach: '#FFCBBA',
+  				yellow: '#FFEBB8',
+  				orange: '#F6502C',
+  			}
+  		},
+  		fontFamily: {
+  			fredoka: ['var(--font-fredoka)'],
+  			quicksand: ['var(--font-quicksand)'],
+  		},
+  	}
   },
   plugins: [],
 };

@@ -93,7 +93,7 @@ export default function Home() {
         <section id="contact" className="w-full bg-main">
           <div className="max-w-[1400px] mx-auto px-6 py-8">
             <h2 className="font-fredoka font-semibold text-6xl mb-10 text-secondary">Contact Me</h2>
-            
+            {/* random comment */}
             <div className="flex flex-col md:flex-row gap-8">
               <div className="md:w-1/3">
                 <p className="text-xl mb-8">

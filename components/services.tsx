@@ -6,7 +6,7 @@ export default function Services() {
         
         <div className="mb-12">
           <h3 className="font-fredoka text-2xl mb-2">Private Training</h3>
-          <p className="font-quicksand mb-2">One-on-one sessions tailored to your dog's specific needs</p>
+          <p className="font-quicksand mb-2">One-on-one sessions tailored to your dog&apos;s specific needs</p>
           <p className="font-quicksand">Starting at $150/session</p>
         </div>
 

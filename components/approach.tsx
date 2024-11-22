@@ -24,7 +24,7 @@ export default function Approach() {
             </div>
             <h3 className="text-xl font-semibold mb-2">Customized Plans</h3>
             <p className="text-gray-600">
-              Tailored training programs based on your dog's unique needs and personality
+              Tailored training programs based on your dog&apos;s unique needs and personality
             </p>
           </div>
           

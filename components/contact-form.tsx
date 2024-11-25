@@ -10,6 +10,9 @@ export default function ContactForm() {
     name: '',
     email: '',
     phone: '',
+    zipCode: '',
+    dogName: '',
+    dogBirthdate: '',
     message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -29,7 +32,7 @@ export default function ContactForm() {
       
       if (response.ok) {
         alert('Message sent successfully!')
-        setFormData({ name: '', email: '', phone: '', message: '' })
+        setFormData({ name: '', email: '', phone: '', zipCode: '', dogName: '', dogBirthdate: '', message: '' })
       } else {
         alert('Failed to send message. Please try again.')
       }
@@ -79,6 +82,41 @@ export default function ContactForm() {
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="zipCode" className="block text-sm font-medium mb-2">
+                Zip Code
+              </label>
+              <Input
+                id="zipCode"
+                type="tel"
+                value={formData.zipCode}
+                onChange={(e) => setFormData({...formData, zipCode: e.target.value})}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="dogName" className="block text-sm font-medium mb-2">
+                Dog Name
+              </label>
+              <Input
+                id="dogName"
+                value={formData.dogName}
+                onChange={(e) => setFormData({...formData, dogName: e.target.value})}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="dogBirthdate" className="block text-sm font-medium mb-2">
+                Dog Birthdate
+              </label>
+              <Input
+                id="dogBirthdate"
+                type="date"
+                value={formData.dogBirthdate}
+                onChange={(e) => setFormData({...formData, dogBirthdate: e.target.value})}
                 required
               />
             </div>

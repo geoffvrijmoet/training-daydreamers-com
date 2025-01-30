@@ -1,9 +1,11 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import { MongoClient } from 'mongodb'
 
 export async function POST(request: Request) {
   try {
-    const { name, dogName, dogBirthdate, email, phone, zipCode, message } = await request.json()
+    const formData = await request.json()
+    const { name, dogName, dogBirthdate, email, phone, zipCode, message } = formData
 
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -33,11 +35,22 @@ export async function POST(request: Request) {
       `,
     })
 
-    return NextResponse.json({ message: 'Email sent successfully' })
+    const client = new MongoClient(process.env.MONGODB_URI as string)
+    await client.connect()
+    
+    const db = client.db()
+    await db.collection('contact_form_submissions').insertOne({
+      ...formData,
+      submittedAt: new Date()
+    })
+
+    await client.close()
+
+    return NextResponse.json({ message: 'Email sent and data saved successfully' })
   } catch (error) {
-    console.error('Failed to send email:', error)
+    console.error('Operation failed:', error)
     return NextResponse.json(
-      { error: 'Failed to send email' },
+      { error: 'Operation failed' },
       { status: 500 }
     )
   }

@@ -9,6 +9,9 @@ export default function ContactFormClient() {
     dogBirthdate: '',
     email: '',
     phone: '',
+    streetAddress: '',
+    city: '',
+    state: '',
     zipCode: '',
     message: ''
   })
@@ -37,6 +40,9 @@ export default function ContactFormClient() {
           dogBirthdate: '',
           email: '',
           phone: '',
+          streetAddress: '',
+          city: '',
+          state: '',
           zipCode: '',
           message: ''
         })
@@ -108,16 +114,53 @@ export default function ContactFormClient() {
       </div>
 
       <div className="mb-3">
-        <label className="block mb-1 text-lg">Zip Code</label>
+        <label className="block mb-1 text-lg">Street Address</label>
         <input 
           type="text" 
-          pattern="[0-9]*"
-          maxLength={5}
-          value={formData.zipCode}
-          onChange={(e) => setFormData(prev => ({ ...prev, zipCode: e.target.value }))}
+          value={formData.streetAddress}
+          onChange={(e) => setFormData(prev => ({ ...prev, streetAddress: e.target.value }))}
           className="w-full border border-gray-400 p-1.5 rounded-md" 
-          required 
+          placeholder="123 Main Street"
         />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
+        <div>
+          <label className="block mb-1 text-lg">City</label>
+          <input 
+            type="text" 
+            value={formData.city}
+            onChange={(e) => setFormData(prev => ({ ...prev, city: e.target.value }))}
+            className="w-full border border-gray-400 p-1.5 rounded-md" 
+            placeholder="New York"
+          />
+        </div>
+        
+        <div>
+          <label className="block mb-1 text-lg">State</label>
+          <input 
+            type="text" 
+            value={formData.state}
+            onChange={(e) => setFormData(prev => ({ ...prev, state: e.target.value }))}
+            className="w-full border border-gray-400 p-1.5 rounded-md" 
+            placeholder="NY"
+            maxLength={2}
+          />
+        </div>
+        
+        <div>
+          <label className="block mb-1 text-lg">Zip Code</label>
+          <input 
+            type="text" 
+            pattern="[0-9]*"
+            maxLength={5}
+            value={formData.zipCode}
+            onChange={(e) => setFormData(prev => ({ ...prev, zipCode: e.target.value }))}
+            className="w-full border border-gray-400 p-1.5 rounded-md" 
+            placeholder="10001"
+            required 
+          />
+        </div>
       </div>
 
       <div className="mb-4">

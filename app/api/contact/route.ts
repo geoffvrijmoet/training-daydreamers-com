@@ -5,7 +5,7 @@ import { MongoClient } from 'mongodb'
 export async function POST(request: Request) {
   try {
     const formData = await request.json()
-    const { name, dogName, dogBirthdate, email, phone, zipCode, message } = formData
+    const { name, dogName, dogBirthdate, email, phone, streetAddress, city, state, zipCode, message } = formData
 
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -17,6 +17,10 @@ export async function POST(request: Request) {
       },
     })
 
+    // Build address string from components
+    const addressParts = [streetAddress, city, state, zipCode].filter(part => part && part.trim())
+    const fullAddress = addressParts.length > 0 ? addressParts.join(', ') : 'Not provided'
+
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: "dogtraining@daydreamersnyc.com",
@@ -26,7 +30,7 @@ export async function POST(request: Request) {
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email address:</strong> ${email}</p>
           <p><strong>Phone number:</strong> ${phone}</p>
-          <p><strong>Zip Code:</strong> ${zipCode}</p>
+          <p><strong>Address:</strong> ${fullAddress}</p>
           <br>
           <p><strong>Dog:</strong> ${dogName}, born ${dogBirthdate}</p>
           <br>

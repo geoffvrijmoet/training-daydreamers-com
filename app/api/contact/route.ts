@@ -20,6 +20,11 @@ export async function POST(request: Request) {
     // Build address string from components
     const addressParts = [streetAddress, city, state, zipCode].filter(part => part && part.trim())
     const fullAddress = addressParts.length > 0 ? addressParts.join(', ') : 'Not provided'
+    
+    // Create Google Maps URL if address exists
+    const googleMapsUrl = addressParts.length > 0 
+      ? `https://maps.google.com/maps?q=${encodeURIComponent(fullAddress)}`
+      : null
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
@@ -30,7 +35,7 @@ export async function POST(request: Request) {
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email address:</strong> ${email}</p>
           <p><strong>Phone number:</strong> ${phone}</p>
-          <p><strong>Address:</strong> ${fullAddress}</p>
+          <p><strong>Address:</strong> ${googleMapsUrl ? `<a href="${googleMapsUrl}" target="_blank" style="color: #1a73e8; text-decoration: none;">${fullAddress}</a>` : fullAddress}</p>
           <br>
           <p><strong>Dog:</strong> ${dogName}, born ${dogBirthdate}</p>
           <br>

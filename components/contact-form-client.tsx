@@ -121,6 +121,7 @@ export default function ContactFormClient() {
           onChange={(e) => setFormData(prev => ({ ...prev, streetAddress: e.target.value }))}
           className="w-full border border-gray-400 p-1.5 rounded-md" 
           placeholder="123 Main Street"
+          required
         />
       </div>
 
@@ -133,6 +134,7 @@ export default function ContactFormClient() {
             onChange={(e) => setFormData(prev => ({ ...prev, city: e.target.value }))}
             className="w-full border border-gray-400 p-1.5 rounded-md" 
             placeholder="New York"
+            required
           />
         </div>
         
@@ -145,6 +147,7 @@ export default function ContactFormClient() {
             className="w-full border border-gray-400 p-1.5 rounded-md" 
             placeholder="NY"
             maxLength={2}
+            required
           />
         </div>
         

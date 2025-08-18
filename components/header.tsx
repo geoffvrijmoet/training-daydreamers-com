@@ -1,35 +1,40 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { Section } from '@/components/ui/layout'
 
 export default function Header() {
   return (
     <header className="w-full bg-white">
-      <div className="max-w-[1400px] mx-auto px-6 py-8 flex justify-between items-center">
-        <Link href="/" className="flex-shrink-0">
-          <Image
-            src="/images/daydreamers-dog-training-logo.webp"
-            alt="Daydreamers Dog Training"
-            width={500}
-            height={167}
-            priority
-          />
-        </Link>
-        
-        <nav className="flex gap-8 items-center">
-          <Link 
-            href="#philosophy" 
-            className="text-lg font-fredoka text-secondary hover:text-accent-orange transition-colors"
-          >
-            Madeline&apos;s Training Philosophy
+      <Section className="py-4 md:py-6">
+        <div className="flex items-center justify-between gap-4">
+          <Link href="/" className="flex-1 md:flex-none">
+            <Image
+              src="/images/daydreamers-dog-training-logo.webp"
+              alt="Daydreamers Dog Training"
+              width={500}
+              height={167}
+              sizes="(min-width: 1024px) 500px, (min-width: 768px) 420px, 100vw"
+              className="h-auto w-full md:w-auto md:max-w-[420px] lg:max-w-[500px]"
+              priority
+            />
           </Link>
-          <Link 
-            href="#contact" 
-            className="text-lg font-fredoka text-secondary hover:text-accent-orange transition-colors"
-          >
-            Contact Me
-          </Link>
-        </nav>
-      </div>
+
+          <nav className="hidden items-center gap-6 md:flex">
+            <Link 
+              href="#philosophy" 
+              className="text-lg font-fredoka text-secondary hover:text-accent-orange transition-colors"
+            >
+              Madeline&apos;s Training Philosophy
+            </Link>
+            <Link 
+              href="#contact" 
+              className="text-lg font-fredoka text-secondary hover:text-accent-orange transition-colors"
+            >
+              Contact Me
+            </Link>
+          </nav>
+        </div>
+      </Section>
     </header>
   )
 } 

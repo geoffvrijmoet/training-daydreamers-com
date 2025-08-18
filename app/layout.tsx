@@ -26,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${fredoka.variable} ${quicksand.variable}`}>
-      <body className="font-quicksand">{children}</body>
+    <html lang="en" className={`${fredoka.variable} ${quicksand.variable} h-full overflow-x-hidden`}>
+      <body className="font-quicksand h-full overflow-x-hidden">{children}</body>
     </html>
   )
 }

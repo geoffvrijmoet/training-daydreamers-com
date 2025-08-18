@@ -58,6 +58,12 @@ export default function ContactFormClient() {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-xl mx-auto">
+      <div className="mb-4 rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900 shadow-sm">
+        <p>
+          <span className="font-medium">Business hours:</span> Sunday–Thursday, 11am–7pm. I reply during business hours.
+          Messages sent outside these times will be answered once I&apos;m back.
+        </p>
+      </div>
       <div className="mb-3">
         <label className="block mb-1 text-lg">Your Name</label>
         <input 

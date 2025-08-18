@@ -12,6 +12,18 @@ body {
   }
 }
 
+@layer components {
+  .container-section {
+    @apply mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8;
+  }
+  .stack {
+    @apply flex flex-col gap-4 md:gap-6;
+  }
+  .card {
+    @apply rounded-lg border border-gray-200 bg-white shadow-sm;
+  }
+}
+
 @layer base {
   :root {
     --radius: 0.5rem;

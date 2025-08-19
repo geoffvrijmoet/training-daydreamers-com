@@ -28,8 +28,8 @@ export default function PrivacyPolicy() {
         <p className="mb-4">
           Should you have any questions about our privacy practices or this Privacy Policy, please email us at info@daydreamersnyc.com or contact us at:
         </p>
-        <p>1657 Summerfield St #2B</p>
-        <p>Ridgewood, NY, 11385</p>
+        <p>408 E 18th St #3</p>
+        <p>Brooklyn, NY, 11226</p>
         <p>United States</p>
       </div>
     </div>

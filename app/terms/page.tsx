@@ -20,7 +20,7 @@ export default function Terms() {
         <p className="mb-4">Questions about the Terms of Service should be sent to us at info@daydreamersnyc.com.</p>
         <p>Daydreamers Pet Supply LLC</p>
         <p>info@daydreamersnyc.com</p>
-        <p>1657 Summerfield St #2B, Ridgewood, NY 11385</p>
+        <p>408 E 18th St #3, Brooklyn, NY 11226</p>
         <p>(541) 359-5481</p>
         <p>EIN: 92-3167241</p>
       </div>

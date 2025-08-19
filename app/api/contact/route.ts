@@ -26,6 +26,19 @@ export async function POST(request: Request) {
       ? `https://maps.google.com/maps?q=${encodeURIComponent(fullAddress)}`
       : null
 
+    const client = new MongoClient(process.env.MONGODB_URI as string)
+    await client.connect()
+    
+    const db = client.db()
+    const result = await db.collection('contact_form_submissions').insertOne({
+      ...formData,
+      submittedAt: new Date()
+    })
+
+    await client.close()
+
+    const documentId = result.insertedId.toString()
+
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: "dogtraining@daydreamersnyc.com",
@@ -36,24 +49,13 @@ export async function POST(request: Request) {
           <p><strong>Email address:</strong> ${email}</p>
           <p><strong>Phone number:</strong> ${phone}</p>
           <p><strong>Address:</strong> ${googleMapsUrl ? `<a href="${googleMapsUrl}" target="_blank" style="color: #1a73e8; text-decoration: none;">${fullAddress}</a>` : fullAddress}</p>
-          <br>
           <p><strong>Dog:</strong> ${dogName}, born ${dogBirthdate}</p>
-          <br>
           <p><strong>Message:</strong> ${message}</p>
+          <br>
+          <p><a href="https://admin.training.daydreamersnyc.com/new-training-inquiries/${documentId}" target="_blank" style="color: #1a73e8; text-decoration: none; font-weight: bold;">View this submission in your dashboard</a></p>
         </div>
       `,
     })
-
-    const client = new MongoClient(process.env.MONGODB_URI as string)
-    await client.connect()
-    
-    const db = client.db()
-    await db.collection('contact_form_submissions').insertOne({
-      ...formData,
-      submittedAt: new Date()
-    })
-
-    await client.close()
 
     return NextResponse.json({ message: 'Email sent and data saved successfully' })
   } catch (error) {
